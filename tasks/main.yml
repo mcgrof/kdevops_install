@@ -1,0 +1,36 @@
+---
+- name: Create kdevops playbook directory if it does not exist {{ kdevops_playbook_dir }}
+  file:
+    path: {{ kdevops_playbook_dir }}
+    mode: '0755'
+  run_once: true
+  tags: [ 'playbooks', 'directory' ]
+
+- name: Copy playbook files onto kdevops playbook dir {{ kdevops_playbook_dir }}
+  template:
+    src: "{{ item }}"
+    dest: "{{ kdevops_playbook_dir }}/{{ item }}"
+  run_once: true
+  with_items:
+    - "bootlinux.yml"
+    - "devconfig.yml"
+    - "install_terraform.yml"
+    - "install-vagrant-boxes.yml"
+    - "install_vagrant.yml"
+    - "kdevops_terraform.yml"
+    - "kdevops_vagrant.yml"
+    - "libvirt_user.yml"
+    - "update_ssh_config_vagrant.yml"
+  loop_control:
+    label: "{{ item }}"
+
+- name: Copy top level files for kdevops
+  template:
+    src: "{{ item }}"
+    dest: "{{ item }}"
+  run_once: true
+  with_items:
+    - "Makefile.kdevops"
+    - "kdevops_requirements.yml"
+  loop_control:
+    label: "{{ item }}"
