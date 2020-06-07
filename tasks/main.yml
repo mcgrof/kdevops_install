@@ -3,6 +3,7 @@
   file:
     path: "{{ kdevops_playbook_dir }}"
     mode: '0755'
+    state: directory
   run_once: true
   tags: [ 'playbooks', 'directory' ]
 
