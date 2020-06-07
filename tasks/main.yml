@@ -10,7 +10,7 @@
 - name: Copy playbook files onto kdevops playbook dir {{ kdevops_playbook_dir }}
   template:
     src: "{{ item }}"
-    dest: "{{ kdevops_playbook_dir }}/{{ item }}"
+    dest: "{{ playbook_dir }}/{{ item }}"
   run_once: true
   with_items:
     - "bootlinux.yml"
@@ -28,7 +28,7 @@
 - name: Copy top level files for kdevops
   template:
     src: "{{ item }}"
-    dest: "{{ item }}"
+    dest: "{{ playbook_dir }}/../{{ item }}"
   run_once: true
   with_items:
     - "Makefile.kdevops"
