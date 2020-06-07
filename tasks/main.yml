@@ -1,7 +1,7 @@
 ---
 - name: Create kdevops playbook directory if it does not exist {{ kdevops_playbook_dir }}
   file:
-    path: {{ kdevops_playbook_dir }}
+    path: "{{ kdevops_playbook_dir }}"
     mode: '0755'
   run_once: true
   tags: [ 'playbooks', 'directory' ]
