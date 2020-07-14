@@ -29,6 +29,24 @@ Dependencies
 
 None.
 
+Enabling libvirt as a regular user
+----------------------------------
+
+kdevops strives to enable a regular user, the user who would use kdevops,
+to run libvirt commands as a regular user. This work is handled by the
+[https://github.com/mcgrof/libvirt-user](libvirt-user) ansible role.
+We use this role twice, once with `only_verify_user` set to False, to
+enable the work to get the user to use libvirt as a regular user, and
+a second time after with `only_verify_user` set to True so that we can
+inform the user if they need to log out and back in. Logging out and
+back is required if your user was added to a group.
+
+`install_kdevops` handles this for you. We first enable libvirt to be used
+as a regular user in the target `kdevops_vagrant_deps` by running the
+[https://github.com/mcgrof/libvirt-user](libvirt-user) ansible role. Then,
+on the `kdevops_verify_vagrant_user` target we verify if the user needs to
+log out and back in. We do this as a last step.
+
 Example Playbook
 ----------------
 
