@@ -7,7 +7,7 @@
 
 - src: mcgrof.install_vagrant
   name: mcgrof.install_vagrant
-  version: v1.0.0
+  version: v1.0.1
 
 - src: mcgrof.install_vagrant_boxes
   name: mcgrof.install_vagrant_boxes
