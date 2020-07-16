@@ -65,6 +65,21 @@ In this particular case note how localhost is used. This is because we are
 provisioning the Vagrantfile to the kdevops/vagrant/ directory locally.
 You could obviously use a different host.
 
+Extra ansible arguments
+-----------------------
+
+*All* of the kdevops ansible roles look for exta argument files to set the
+ansible `--extra-vars=@file` option which will override *all* variables.
+These files are *specific* to kdevops, we however use generic names.
+Ansible does not look for these files, *we* have added a task to *each*
+and every kdevops ansible role to look for these files, to help avoid
+you having to augment the command line with your preferences. The order
+of the files we look for are:
+
+  * `../extra_vars.yml`
+  * `../extra_vars.yaml`
+  * `../extra_vars.json`
+
 Further information
 --------------------
 
