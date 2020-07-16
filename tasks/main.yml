@@ -1,4 +1,15 @@
 ---
+- name: Import optional extra_args file
+  include_vars: "{{ item }}"
+  ignore_errors: yes
+  with_first_found:
+    - files:
+      - "../extra_vars.yml"
+      - "../extra_vars.yaml"
+      - "../extra_vars.json"
+      skip: true
+  tags: vars
+
 - name: Create kdevops playbook directory if it does not exist {{ kdevops_playbook_dir }}
   file:
     path: "{{ kdevops_playbook_dir }}"
