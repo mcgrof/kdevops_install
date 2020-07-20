@@ -16,10 +16,24 @@ kdevops_terraform_deps:
 	fi
 PHONY += kdevops_terraform_deps
 
-kdevops_vagrant_deps:
+kdevops_vagrant_install_vagrant:
 	@ansible-playbook -i $(KDEVOPS_HOSTFILE) $(KDEVOPS_PLAYBOOKS_DIR)/install_vagrant.yml
-	@ansible-playbook -i $(KDEVOPS_HOSTFILE) $(KDEVOPS_PLAYBOOKS_DIR)/libvirt_user.yml
+
+kdevops_vagrant_install_libvirt:
+	@ansible-playbook -i $(KDEVOPS_HOSTFILE) $(KDEVOPS_PLAYBOOKS_DIR)/libvirt_user.yml -e "skip_configuration=True"
+
+kdevops_vagrant_configure_libvirt:
+	@ansible-playbook -i $(KDEVOPS_HOSTFILE) $(KDEVOPS_PLAYBOOKS_DIR)/libvirt_user.yml -e "skip_install=True"
+
+kdevops_vagrant_get_Vagrantfile:
 	@ansible-playbook -i $(KDEVOPS_HOSTFILE) $(KDEVOPS_PLAYBOOKS_DIR)/kdevops_vagrant.yml
+
+kdevops_vagrant_deps: \
+		kdevops_vagrant_install_vagrant \
+		kdevops_vagrant_install_libvirt \
+		kdevops_vagrant_configure_libvirt \
+		kdevops_vagrant_get_Vagrantfile
+
 PHONY += kdevops_vagrant_deps
 KDEVOPS_VAGRANT_WORK := kdevops_vagrant_deps
 
