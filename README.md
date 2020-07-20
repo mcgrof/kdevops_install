@@ -80,6 +80,14 @@ of the files we look for are:
   * `../extra_vars.yaml`
   * `../extra_vars.json`
 
+kconfig support
+---------------
+
+There are enough targets so you can easily use a build system which has
+a modeling variablity language such as kconfig so that you can configure
+what you want to enable or not. This is demo'd on the upstream
+[https://github.com/mcgrof/kdevops](kdevops) project now.
+
 Further information
 --------------------
 
