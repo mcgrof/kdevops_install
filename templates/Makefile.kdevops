@@ -4,6 +4,7 @@ KDEVOPS_TERRAFORM_DIR ?=	terraform
 KDEVOPS_PLAYBOOKS_DIR ?=	playbooks
 KDEVOPS_HOSTFILE ?=		hosts
 KDEVOPS_REQUIREMENTS ?=		kdevops_requirements.yml
+KDEVOPS_FORCE_ANSIBLE_ROLES ?=  "--force"
 
 kdevops_all: kdevops_deps
 PHONY := kdevops_all
@@ -48,7 +49,7 @@ PHONY += kdevops_verify_vagrant_user
 KDEVOPS_VAGRANT_WORK += kdevops_verify_vagrant_user
 
 kdevops_ansible_deps:
-	@ansible-galaxy install --force -r $(KDEVOPS_REQUIREMENTS)
+	@ansible-galaxy install $(KDEVOPS_FORCE_ANSIBLE_ROLES) -r $(KDEVOPS_REQUIREMENTS)
 PHONY += kdevops_ansible_deps
 
 kdevops_deps: kdevops_ansible_deps kdevops_terraform_deps $(KDEVOPS_VAGRANT_WORK)
