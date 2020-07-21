@@ -58,7 +58,6 @@ so kdevops/playbooks/kdevops_vagrant.yml file:
 - hosts: localhost
   roles:
     - role: kdevops_install
-
 ```
 
 In this particular case note how localhost is used. This is because we are
