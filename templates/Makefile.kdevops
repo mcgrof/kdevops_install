@@ -4,7 +4,7 @@ KDEVOPS_TERRAFORM_DIR ?=	terraform
 KDEVOPS_PLAYBOOKS_DIR ?=	playbooks
 KDEVOPS_HOSTFILE ?=		hosts
 KDEVOPS_REQUIREMENTS ?=		kdevops_requirements.yml
-KDEVOPS_FORCE_ANSIBLE_ROLES ?=  "--force"
+KDEVOPS_FORCE_ANSIBLE_ROLES ?=  --force
 
 kdevops_all: kdevops_deps
 PHONY := kdevops_all
