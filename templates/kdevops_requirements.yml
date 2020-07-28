@@ -23,7 +23,7 @@
 
 - src: mcgrof.kdevops_terraform
   name: mcgrof.kdevops_terraform
-  version: v1.2.9
+  version: v1.2.10
 
 - src: mcgrof.create_partition
   name: mcgrof.create_partition
@@ -35,7 +35,7 @@
 
 - src: mcgrof.devconfig
   name: mcgrof.devconfig
-  version: v2.1.0
+  version: v2.1.1
 
 - src: mcgrof.bootlinux
   name: mcgrof.bootlinux
