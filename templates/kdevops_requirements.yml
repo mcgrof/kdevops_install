@@ -35,7 +35,7 @@
 
 - src: mcgrof.devconfig
   name: mcgrof.devconfig
-  version: v2.1.3
+  version: v2.2.0
 
 - src: mcgrof.bootlinux
   name: mcgrof.bootlinux
