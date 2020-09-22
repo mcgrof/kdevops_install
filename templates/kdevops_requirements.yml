@@ -23,7 +23,7 @@
 
 - src: mcgrof.kdevops_terraform
   name: mcgrof.kdevops_terraform
-  version: v1.2.12
+  version: v1.3.0
 
 - src: mcgrof.create_partition
   name: mcgrof.create_partition
@@ -31,7 +31,7 @@
 
 - src: mcgrof.update_ssh_config_vagrant
   name: mcgrof.update_ssh_config_vagrant
-  version: v2.1.0
+  version: v3.0.0
 
 - src: mcgrof.devconfig
   name: mcgrof.devconfig
