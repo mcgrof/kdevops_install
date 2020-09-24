@@ -31,7 +31,7 @@
 
 - src: mcgrof.update_ssh_config_vagrant
   name: mcgrof.update_ssh_config_vagrant
-  version: v4.0.2
+  version: v4.0.3
 
 - src: mcgrof.devconfig
   name: mcgrof.devconfig
